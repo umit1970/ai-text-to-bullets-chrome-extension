@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Text to Bullets</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+
+    .instruction {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .instruction strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .instruction ol {
+      margin-left: 20px;
+    }
+
+    .instruction li {
+      margin-bottom: 6px;
+    }
+
+    .keyboard-shortcut {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .keyboard-shortcut strong {
+      font-size: 14px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .keyboard-shortcut kbd {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: white;
+      color: #667eea;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .status {
+      margin-top: 12px;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .status.error {
+      background: rgba(239, 68, 68, 0.3);
+    }
+
+    .status.success {
+      background: rgba(16, 185, 129, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M3 6a2 2 0 012-2h14a2 2 0 110 4H5a2 2 0 01-2-2zm0 6a2 2 0 012-2h14a2 2 0 110 4H5a2 2 0 01-2-2zm0 6a2 2 0 012-2h14a2 2 0 110 4H5a2 2 0 01-2-2z"/>
+    </svg>
+    AI Text to Bullets
+  </h1>
+  <div class="subtitle">Seçili metni AI ile bullet point'lere çevir</div>
+
+  <div class="instruction">
+    <strong>📝 Nasıl Kullanılır?</strong>
+    <ol>
+      <li>Herhangi bir sayfada metin seçin</li>
+      <li>"Bullet Points" butonuna tıklayın</li>
+      <li>AI'nin oluşturduğu sonucu görün</li>
+    </ol>
+  </div>
+
+  <div class="keyboard-shortcut">
+    <strong>⌨️ Klavye Kısayolu</strong>
+    <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd><br>
+    <small>(Mac: Cmd + Shift + B)</small>
+  </div>
+
+  <button id="settingsBtn">⚙️ Ayarlar</button>
+
+  <div id="status" class="status" style="display: none;"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
